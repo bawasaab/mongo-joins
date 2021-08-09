@@ -2,14 +2,13 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const ObjectId = Schema.ObjectId;
 const STATUSES = ['OPEN', 'CLOSE', 'DELETED'];
-const LIKES = ['LIKE', 'UNLIKE'];
 const dated = new Date();
 
-const CommentLikesSchema = new Schema({
-    student_id: { type: ObjectId, default: null },
-    post_id: { type: ObjectId, default: null },
-    comment_id: { type: ObjectId, default: null },
-    liked: { type: String, enum: LIKES },
+const StudentCourseFeeSchema = new Schema({
+    student_course_id: { type: ObjectId, default: null },
+
+    paid_on: { type: Date, default: dated },
+    amount: { type: Date, default: dated },
 
 	status: { type: String, enum: STATUSES, default: 'OPEN' },
     
@@ -18,4 +17,4 @@ const CommentLikesSchema = new Schema({
     updatedAt: { type: Date, default: dated },
 });
 
-module.exports = mongoose.model('CommentLikes', CommentLikesSchema);
+module.exports = mongoose.model('StudentCourseFee', StudentCourseFeeSchema);

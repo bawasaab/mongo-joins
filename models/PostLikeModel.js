@@ -5,7 +5,7 @@ const STATUSES = ['OPEN', 'CLOSE', 'DELETED'];
 const LIKES = ['LIKE', 'UNLIKE'];
 const dated = new Date();
 
-const PostLikesSchema = new Schema({
+const PostLikeSchema = new Schema({
     student_id: { type: ObjectId, default: null },
     post_id: { type: ObjectId, default: null },
     liked: { type: String, enum: LIKES },
@@ -17,4 +17,4 @@ const PostLikesSchema = new Schema({
     updatedAt: { type: Date, default: dated },
 });
 
-module.exports = mongoose.model('PostLikes', PostLikesSchema);
+module.exports = mongoose.model('PostLike', PostLikeSchema);
